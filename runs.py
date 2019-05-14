@@ -2,5 +2,10 @@ import draw
 import hilb
 
 t = draw.Turtle()
-t.down()
-t.follow(hilb.curve(4), 3)
+try:
+    t.up()
+    t.goto(191, -200)
+    t.down()
+    t.follow(hilb.curve(7), 3)
+finally:
+    t.stop()

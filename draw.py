@@ -113,22 +113,26 @@ class Drawer:
 class Turtle:
     def __init__(self):
         self.drawer = Drawer()
+        self.drawer.set_up_down(124, 100)
         self.bounds = (-200, -200, 200, 200)
+        self.yoffset = -380
         self.dir = (0, 1)
         self.pos = (0, 0)
 
         time.sleep(2)
         self.drawer.start()
+        self.up()
 
     def stop(self):
+        self.drawer.serial_clear()
         self.up()
-        self.goto(0, 0)
+        self.drawer.goto(0, 0)
 
     def up(self):
-        self.drawer.angle(130)
+        self.drawer.up()
 
     def down(self):
-        self.drawer.angle(100)
+        self.drawer.down()
 
     def left(self):
         x, y = self.dir
@@ -150,7 +154,7 @@ class Turtle:
 
     def goto(self, x, y):
         if self.in_bounds(x, y):
-            self.drawer.goto(x, y)
+            self.drawer.goto(x, y + self.yoffset)
             self.pos = x, y
 
     def in_bounds(self, x, y):
