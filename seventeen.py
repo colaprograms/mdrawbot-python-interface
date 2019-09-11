@@ -1,4 +1,4 @@
-import draw
+import mdrawbot.draw as draw
 import time
 import math
 import numpy as np

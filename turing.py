@@ -1,4 +1,4 @@
-import draw
+import mdrawbot.draw as draw
 import time
 import numpy as np
 from PIL import Image
@@ -65,7 +65,7 @@ class Range:
     pass
 
 def draw_turing():
-    t = Image.open("turing.png")
+    t = Image.open("img/turing.png")
     w, h = t.size
     r = Range()
     r.on = False

@@ -1,0 +1,71 @@
+Here are some programs to control the mDrawBot.
+They connect to the serial port /dev/ttyS0, so make sure that the user
+has permission to open it (e.g. add them to dialout group)
+
+IMPORTANT:
+
+For these programs to work, the robot must start as high as possible
+and roughly centered under the control block.
+
+The robot keeps track of where it is, and it will get confused if it starts
+in the wrong place, so it must be tricked to move to the right place.
+
+To do this, use
+
+python3 move.py left 100
+python3 move.py left 100
+python3 move.py right 50
+python3 move.py left 10
+(etc)
+
+to roughly centre the robot under the control block, and then use
+
+python3 move.py up
+python3 move.py up
+python3 move.py up
+
+to move it up bit by bit until the motors start clicking. The motors aren't
+strong enough to move it horizontally when it's all the way up, so moving
+left and right at the top will probably not work.
+
+
+Programs:
+
+terminal.py - connect to the mDrawBot and send it terminal commands.
+
+hilbert_curve.py - draw a Hilbert curve of order 7
+
+hopper.py
+rossum.py
+turing.py - draw pictures of notable computer people
+
+server.py - start a TCP server that takes connections on port 34442.
+
+Commands:
+
+== M10: Initialize and print out facts about robot
+
+M10
+        M10 MSPIDER 940 1530 0.00 0.000 A0 b0 H0 S90 U113 D0
+        OK
+
+    H: hang distance
+    W: width between two strings
+    A: left motor is clockwise (0) or counterclockwise (1)
+    B: right motor is clockwise (0) or counterclockwise (1)
+    S: idk lol
+
+== M5: Configure
+
+M5 A1 B1 H940 W1530 S90
+    OK
+
+== M1: Change the servo angle (in degrees)
+
+M1 113
+    OK
+
+== G1: Move the robot around
+
+G1 X-0.00 Y0.00
+    OK

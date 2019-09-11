@@ -1,4 +1,4 @@
-import draw
+import mdrawbot.draw as draw
 import time
 import numpy as np
 from PIL import Image
@@ -74,7 +74,7 @@ class Range:
 
 def draw_hopper():
     global XOFFSET
-    t = Image.open("hopper.png")
+    t = Image.open("img/hopper.png")
     w, h = t.size
     XOFFSET = -w / 2
     r = Range()
